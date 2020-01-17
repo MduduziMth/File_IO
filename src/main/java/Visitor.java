@@ -1,5 +1,6 @@
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.message.Message;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -36,14 +37,16 @@ public class Visitor {
     }
 
 
-    public void save()
+    public String save()
     {
+        String Message ="";
         try{
             FullName = FullName.replaceAll(" ","_").toLowerCase();
             FileWriter newFile = new FileWriter("visitor_"+ FullName+".txt");
             newFile.write(FullName +"\n"+ Age+"\n" + DateOfVisit+"\n" + TimeOfVisit+"\n"+Comments+"\n" + NameOfAssistor);
             newFile.close();
             logger.info("saved successfully");
+            Message = "File Saved";
             //logger.
 
         } catch (IOException e){
@@ -51,10 +54,13 @@ public class Visitor {
 
         }
 
+        return  Message;
+
     }
 
-    public void load(String fileNAme)
+    public String load(String fileNAme)
     {
+        String loadedData="";
         try{
             fileNAme = "visitor_"+fileNAme.replaceAll(" ","_").toLowerCase()+".txt";
             File loadedFile = new File(fileNAme);
@@ -63,14 +69,18 @@ public class Visitor {
             while (fileRead.hasNext())
             {
                 String data = fileRead.nextLine();
-                System.out.println(data);
+                loadedData += data+"\n";
             }
             fileRead.close();
             logger.info("loaded successfully");
         } catch (FileNotFoundException e){
 
             logger.error(e.getMessage());
+            loadedData = "File does not exist";
+
         }
+
+        return loadedData;
         
     }
 

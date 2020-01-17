@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="VisitorTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2020-01-17T10:57:07" hostname="recruit-ThinkCentre-M73" time="0.028">
+  <properties/>
+  <testcase name="TestLoad()" classname="VisitorTest" time="0.024"/>
+  <testcase name="TestSave()" classname="VisitorTest" time="0.002"/>
+  <system-out><![CDATA[2020-01-17 12:57:07,478 | Visitor: loaded successfully
+2020-01-17 12:57:07,486 | Visitor: visitor_cadfafe_dfs.txt (No such file or directory)
+2020-01-17 12:57:07,495 | Visitor: saved successfully
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
